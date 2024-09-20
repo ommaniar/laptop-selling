@@ -55,7 +55,6 @@ function AddProduct() {
                 };
             }
         });
-        // console.log(product)
 
     }
     useEffect(() => {
@@ -70,16 +69,7 @@ function AddProduct() {
             formData.append(key, product[key]);
         }
 
-        // axios.post('http://127.0.0.1:8000/api/add-product',{body:currentProduct})
-        // .then(data=>{
-        //     if(data.message){
-        //         console.log(data.message)
-        //     }
-        //     console.log(data.data)
-        // })
-        // .catch(error =>{
-        //     console.log(error)
-        // })
+       
 
         fetch('http://127.0.0.1:8000/api/add-product', {
             method: 'POST',

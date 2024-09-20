@@ -10,7 +10,6 @@ function AdminProductComponent(props) {
     const [stock,setStock] = useState(props.stock)
 
     const handlePriceUpdate = () => {
-        // Logic for updating the price
         console.log('Updated Price:', newPrice);
         setShowPriceModal(false);
         axios.post('http://127.0.0.1:8000/api/update-product-price', {
@@ -36,7 +35,6 @@ function AdminProductComponent(props) {
     };
 
     const handleStockUpdate = () => {
-        // Logic for updating the stock
         console.log('Updated Stock:', newStock);
         setShowStockModal(false);
         axios.post('http://127.0.0.1:8000/api/update-stock', {

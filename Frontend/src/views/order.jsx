@@ -64,11 +64,11 @@ function Order() {
     return (
         <div>
             <Header />
-            <section id="order" class="container-fluid">
-                <div class="container">
-                    <h3 class="text-center p-2">Enter Order Details</h3>
-                    <form class="was-validated" id="order-form" onSubmit={handleOrder}>
-                        <div class="row">
+            <section id="order" className="container-fluid">
+                <div className="container">
+                    <h3 className="text-center p-2">Enter Order Details</h3>
+                    <form className="was-validated" id="order-form" onSubmit={handleOrder}>
+                        <div className="row">
                             <table className='table table-striped'>
                                 <tr>
                                     <th>PID</th>
@@ -84,25 +84,25 @@ function Order() {
 
                                 </tr>
                             </table>
-                            <div class="col-md-12 "><label for="shipAddress" class="form-label">Shipping Address:</label></div>
-                            <div class="col-md-12"> <textarea name="shipAddress" id="shipAddress" rows="5" onChange={(e)=>{setShippingAddress(e.target.value)}}
-                                class="form-control mb-2" required></textarea>
-                                <div class="invalid-feedback">Enter Your Address</div>
+                            <div className="col-md-12 "><label for="shipAddress" className="form-label">Shipping Address:</label></div>
+                            <div className="col-md-12"> <textarea name="shipAddress" id="shipAddress" rows="5" onChange={(e)=>{setShippingAddress(e.target.value)}}
+                                className="form-control mb-2" required></textarea>
+                                <div className="invalid-feedback">Enter Your Address</div>
                             </div>
 
 
-                            <div class="col-md-12 my-2"><label for="BillAddress" class="form-label">Billing Address:</label>
+                            <div className="col-md-12 my-2"><label for="BillAddress" className="form-label">Billing Address:</label>
                             </div>
-                            <div class="col-md-12">
-                                <textarea name="BillAddress" id="BillAddress" rows="5" class="form-control mb-2" onChange={(e)=>{setBillingAddress(e.target.value)}}
+                            <div className="col-md-12">
+                                <textarea name="BillAddress" id="BillAddress" rows="5" className="form-control mb-2" onChange={(e)=>{setBillingAddress(e.target.value)}}
                                     required></textarea>
-                                <div class="invalid-feedback">Please Enter Your Billing Address</div>
+                                <div className="invalid-feedback">Please Enter Your Billing Address</div>
 
                             </div>
 
-                            <div class="col-md-12 mt-2">
+                            <div className="col-md-12 mt-2">
                                 <label for="payment">Payment Method:</label>
-                                <select class="form-select" id="payment" name="payment" required onChange={(e)=>{setPaymentMethod(e.target.value)}}>
+                                <select className="form-select" id="payment" name="payment" required onChange={(e)=>{setPaymentMethod(e.target.value)}}>
                                     <option selected disbaled hidden value="">Select Payment Method</option>
                                     <option value="cc">Credit Card</option>
                                     <option value="debit">Dedit Card</option>
@@ -110,30 +110,30 @@ function Order() {
                                     <option value="upi">UPI</option>
                                     <option value="cash">Cash On Delivery</option>
                                 </select>
-                                <div class="invalid-feedback">Please Choose Valid Payment Method</div>
+                                <div className="invalid-feedback">Please Choose Valid Payment Method</div>
                             </div>
 
-                            <div class="col-md-6 mt-3">
-                                <label for="Phone" class="form-label">Phone Number:</label>
-                                <input type="tel" name="Phone" id="Phone" placeholder="Enter Phone Number" class="form-control" onChange={(e)=>{setPhoneNumber(e.target.value)}}
+                            <div className="col-md-6 mt-3">
+                                <label for="Phone" className="form-label">Phone Number:</label>
+                                <input type="tel" name="Phone" id="Phone" placeholder="Enter Phone Number" className="form-control" onChange={(e)=>{setPhoneNumber(e.target.value)}}
                                     required />
-                                <div class="invalid-feedback">Please Enter Phone Number</div>
+                                <div className="invalid-feedback">Please Enter Phone Number</div>
                             </div>
 
-                            <div class="col-md-6 mt-3">
-                                <label for="Zip Code" class="form-label">Zip Code:</label>
-                                <input type="text" name="Zip" id="Zip" placeholder="Enter Zip Code" class="form-control" onChange={(e)=>{setZipCode(e.target.value)}}
+                            <div className="col-md-6 mt-3">
+                                <label for="Zip Code" className="form-label">Zip Code:</label>
+                                <input type="text" name="Zip" id="Zip" placeholder="Enter Zip Code" className="form-control" onChange={(e)=>{setZipCode(e.target.value)}}
                                     required />
-                                <div class="invalid-feedback">Please Enter Valid Zip Code</div>
+                                <div className="invalid-feedback">Please Enter Valid Zip Code</div>
                             </div>
 
-                            <div class="col-md-12 my-2">
+                            <div className="col-md-12 my-2">
                                 <input type="checkbox" name="agree" id="agree" onChange={(e)=>{setTerms(e.target.value)}} required />
-                                <label for="agree" class="form-label">I agree to the Terms and Conditions</label>
-                                <div class="invalid-feedback">Please Mark the Check box</div>
+                                <label for="agree" className="form-label">I agree to the Terms and Conditions</label>
+                                <div className="invalid-feedback">Please Mark the Check box</div>
                             </div>
                         </div>
-                        <input type="submit" value="Submit" class="btn btn-primary my-2 py-1" onclick="placeOrder()" />
+                        <input type="submit" value="Submit" className="btn btn-primary my-2 py-1" onclick="placeOrder()" />
                     </form>
                 </div>
             </section>

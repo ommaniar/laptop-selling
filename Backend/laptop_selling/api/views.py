@@ -8,25 +8,6 @@ from account.models import CustomUser
 from decimal import Decimal
 import json
 # Create your views 
-def serialize_cart_item(cart_item):
-    """Helper function to serialize a cart item to JSON-friendly format."""
-    return {
-        'product': cart_item.product.name,
-        'quantity': cart_item.quantity,
-        'price': cart_item.product.price,
-        'main_image_url': cart_item.product.main_image.url if cart_item.product.main_image else None,
-        'second_image_url': cart_item.product.second_image.url if cart_item.product.second_image else None
-    }
-
-def serialize_order_item(order_item):
-    """Helper function to serialize an order item to JSON-friendly format."""
-    return {
-        'product': order_item.product.name,
-        'quantity': order_item.quantity,
-        'price': order_item.price,
-        'main_image_url': order_item.product.main_image.url if order_item.product.main_image else None,
-        'second_image_url': order_item.product.second_image.url if order_item.product.second_image else None
-    }
 
 @csrf_exempt
 def productView(request):
@@ -34,7 +15,8 @@ def productView(request):
             id = request.GET.get('pid')
             result = Product.objects.filter(pid=int(id))
             data = list(result.values())
-
+            if (data[0]['stock'] <= 0):
+                return JsonResponse({'resp':0,'message':"Stock 0 Error"})
             return JsonResponse({'resp':1,'data':data})
             # return JsonResponse({'rest':0,'message':'invalid reuqest'})
     else:
@@ -226,6 +208,8 @@ def update_product_stock(request):
             data = json.loads(request.body)
             id = int(data.get('pid'))
             new_stock = int(data.get('stock'))
+            if(new_stock <= 0):
+                return JsonResponse({'resp':0,'message':"Only Positive Stock value allowed"})
             product = get_object_or_404(Product,pid=id)
             product.stock += new_stock
             product.save()
@@ -242,7 +226,7 @@ def update_product_price(request):
         if request.method == "POST":
             data = json.loads(request.body)
             id = int(data.get('pid'))
-            new_price = int(data.get('price'))
+            new_price = float(data.get('price'))
             product = get_object_or_404(Product,pid=id)
             product.price = new_price
             product.save()

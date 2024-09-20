@@ -11,7 +11,7 @@ function Products() {
   const [page, setPage] = useState(1);
   const [pageArray, setPageArray] = useState([]);
   const [filteredArray, setFilteredArray] = useState([])
-  const PAGE_SIZE = 20;
+  const PAGE_SIZE = 5;
   const paginate = (array, page_size, page_number) => {
     if (!array || array.length === 0) return [];
     const start = (page_number - 1) * page_size;
@@ -87,7 +87,7 @@ function Products() {
   return (
     <div>
       <AdminNavigtion />
-      <div class="container" id="container3">
+      <div className="container" id="container3">
         <div className="row my-1">
           <div className="col-auto m-2">
             <div className="d-flex">
@@ -102,7 +102,7 @@ function Products() {
 
           </div>
         </div>
-        <div class="row">
+        <div className="row">
           {paginate((filteredArray.length > 0 ? filteredArray : products), PAGE_SIZE, page).map(product => (
             <AdminProductComponent
               key={product.pid}

@@ -63,21 +63,21 @@ function MyOrders() {
                 {currentOrder.map(order => {
                     return (
                         <div className='container' id='order_details'>
-                            <h1 class="mb-4">Order Details</h1>
+                            <h1 className="mb-4">Order Details</h1>
 
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <p class="card-text"><strong>OID:</strong> {order.oid}</p>
-                                    <p class="card-text"><strong>Status:</strong> {order.status}</p>
-                                    <p class="card-text"><strong>Total Price:</strong> &#8377;{order.total_price}</p>
-                                    <p class="card-text"><strong>Shipping Address:</strong> {order.shipping_address}</p>
-                                    <p class="card-text"><strong>Billing Address:</strong> {order.billing_address}</p>
-                                    <p class="card-text"><strong>Zipcode:</strong> {order.zipcode}</p>
-                                    <p class="card-text"><strong>Phone Number:</strong> {order.phone_number}</p>
-                                    <p class="card-text"><strong>Payment Mode:</strong> {order.payment}</p>
+                            <div className="card mb-4">
+                                <div className="card-body">
+                                    <p className="card-text"><strong>OID:</strong> {order.oid}</p>
+                                    <p className="card-text"><strong>Status:</strong> {order.status}</p>
+                                    <p className="card-text"><strong>Total Price:</strong> &#8377;{order.total_price}</p>
+                                    <p className="card-text"><strong>Shipping Address:</strong> {order.shipping_address}</p>
+                                    <p className="card-text"><strong>Billing Address:</strong> {order.billing_address}</p>
+                                    <p className="card-text"><strong>Zipcode:</strong> {order.zipcode}</p>
+                                    <p className="card-text"><strong>Phone Number:</strong> {order.phone_number}</p>
+                                    <p className="card-text"><strong>Payment Mode:</strong> {order.payment}</p>
                                 </div>
-                            </div> <h2 class="mb-3">Order Items</h2>
-                            <table class="table table-striped table-bordered">
+                            </div> <h2 className="mb-3">Order Items</h2>
+                            <table className="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th scope="col">Product</th>

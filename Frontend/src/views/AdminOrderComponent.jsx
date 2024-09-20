@@ -10,8 +10,6 @@ function AdminOrderComponent(props) {
     axios.post('http://127.0.0.1:8000/api/change-status', { 'status': status, oid: props.oid })
       .then((res) => {
         console.log(res.data);
-        // props.status=  status
-        // window.location.reload();
 
       }).catch((err) => {
         console.log(err);

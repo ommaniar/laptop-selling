@@ -19,8 +19,9 @@ function AdminOrders() {
 
   const handleSearch = () =>{
     let arr = orderArray.filter(order=>{
-      if((search.length >= 3)&& (search[1] === '"') && (search[search.length-1]==="")){
-        if((order.oid).toString() === search){
+      if((search.length >= 3)&& (search[0] === '"') && (search[search.length-1]==='"')){
+        console.log('search',search.slice(1,-1))
+        if((order.oid).toString() === search.slice(1,-1)){
           return true
         }else{
           return false
@@ -61,9 +62,7 @@ function AdminOrders() {
     setFilteredArray(result);
   }, [result]);
 
-  // useEffect(() => {
-  //   console.log('updated array:', orderArray); // Log the updated state after it's changed
-  // }, [orderArray]);
+
   return (
     <div>
       <AdminNavigtion></AdminNavigtion>
